@@ -1,0 +1,306 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "Easy Geometries Operations",
+        "description": "This API aims to provide operations with one or between two geometries.",
+        "termsOfService": "http://localhost:3333/terms",
+        "contact": {
+            "email": "devmaytry@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3333",
+            "description": "Api de testes"
+        }
+    ],
+    "paths":{
+        "/centroid":{
+            "post": {
+                "summary": "Obtain the Centroid",
+                "description": "This route calculates the centroid of the target geometry and returns the wkt of centroid and the epsg of this wkt.",
+                "tags": ["Geometry"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SingleGeomRequest"
+                            },
+                            "examples": {
+                                "singleGeom": {"$ref": "#/components/examples/SingleGeomExample"}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProcessResponseWkt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contains":{
+            "post": {
+                "summary": "Check if Contains",
+                "description": "This route checks if the first geom contains the second geom.",
+                "tags": ["Geometry"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DoubleGeomRequest"
+                            },
+                            "examples": {
+                                "singleGeom": {"$ref": "#/components/examples/DoubleGeomExample"}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProcessResponseBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/crosses":{
+            "post": {
+                "summary": "Check if Crosses",
+                "description": "This route checks if the first geom crosses the second geom.",
+                "tags": ["Geometry"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DoubleGeomRequest"
+                            },
+                            "examples": {
+                                "singleGeom": {"$ref": "#/components/examples/DoubleGeomExample"}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProcessResponseBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intersects":{
+            "post": {
+                "summary": "Check if Intersects",
+                "description": "This route checks if the first geom intersects the second geom.",
+                "tags": ["Geometry"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DoubleGeomRequest"
+                            },
+                            "examples": {
+                                "singleGeom": {"$ref": "#/components/examples/DoubleGeomExample"}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProcessResponseBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }, 
+        "/intersection":{
+            "post": {
+                "summary": "Obtain the Intersection",
+                "description": "This route calculates the intersection of the first geometry with the second geometry adn returns the wkt of instersection and the epsg of this wkt.",
+                "tags": ["Geometry"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DoubleGeomRequest"
+                            },
+                            "examples": {
+                                "singleGeom": {"$ref": "#/components/examples/DoubleGeomExample"}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProcessResponseBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/overlaps":{
+            "post": {
+                "summary": "Check if Overlaps",
+                "description": "This route checks if the first geom overlaps the second geom.",
+                "tags": ["Geometry"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DoubleGeomRequest"
+                            },
+                            "examples": {
+                                "singleGeom": {"$ref": "#/components/examples/DoubleGeomExample"}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProcessResponseBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },      
+        "/touches":{
+            "post": {
+                "summary": "Check if Overlaps",
+                "description": "This route checks if the first geom touches the second geom.",
+                "tags": ["Geometry"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DoubleGeomRequest"
+                            },
+                            "examples": {
+                                "singleGeom": {"$ref": "#/components/examples/DoubleGeomExample"}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProcessResponseBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }          
+    },
+    "components": {
+        "schemas": {
+            "SingleGeomRequest": {
+                "type": "object",
+                "properties": {
+                    "wkt": {
+                        "type": "string"
+                    },
+                    "epsg": {
+                        "type": "number"
+                    }
+                }
+            },
+            "DoubleGeomRequest": {
+                "type": "object",
+                "properties": {
+                    "firstWkt": {
+                        "type": "string"
+                    },
+                    "secondWkt": {
+                        "type": "string"
+                    },
+                    "epsg": {
+                        "type": "number"
+                    }
+                }
+            },
+            "ProcessResponseBoolean": {
+                "type": "object",
+                "properties": {
+                    "executedProcess": {
+                        "type": "string"
+                    },
+                    "result": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ProcessResponseWkt": {
+                "type": "object",
+                "properties": {
+                    "executedProcess": {
+                        "type": "string"
+                    },
+                    "resultWkt": {
+                        "type": "string"
+                    },
+                    "epsgOfResultWkt": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "examples": {
+            "SingleGeomExample": {
+                    "value": {
+                        "wkt":"POLYGON((10.689 -25.092, 34.595 -20.170, 38.814 -35.639, 13.502 -39.155, 10.689 -25.092))",
+                        "epsg":3857
+                    }
+            },
+            "DoubleGeomExample": {
+                "value": {
+                    "firstWkt":"POLYGON((10.689 -25.092, 34.595 -20.170, 38.814 -35.639, 13.502 -39.155, 10.689 -25.092))",
+                    "secondWkt":"POLYGON((10.689 -25.092, 34.595 -20.170, 38.814 -35.639, 13.502 -39.155, 10.689 -25.092))",
+                    "epsg":3857
+                }
+        }
+        }
+    }
+}
