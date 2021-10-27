@@ -12,7 +12,11 @@
     "servers": [
         {
             "url": "http://localhost:3333",
-            "description": "Api de testes"
+            "description": "Api de testes (local)"
+        },
+        {
+            "url": "https://easygeomoperations.herokuapp.com",
+            "description": "Api de testes (heroku)"
         }
     ],
     "paths":{
